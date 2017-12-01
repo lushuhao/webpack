@@ -1,0 +1,29 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "webpack配置",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lushuhao/webpack-demo.git"
+  },
+  "author": "lushuhao (shahramlu@163.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lushuhao/webpack-demo/issues"
+  },
+  "homepage": "https://github.com/lushuhao/webpack-demo#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.5",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.9.1"
+  }
+}
