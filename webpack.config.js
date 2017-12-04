@@ -1,11 +1,22 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, 'dist')
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist']), // 每次build前清除dist目录
+    new HtmlWebpackPlugin({ // 生成新的index.html
+      title: 'Webpack Demo'
+    })
+  ],
   module: {
     rules: [
       {
@@ -19,7 +30,7 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           // 'file-loader' // import 导入本地图片，会被处理添加到output目录，返回输出目录的最终路径，
-                        // css-loader和html-loader同样式的方式处理url()、<style />
+          // css-loader和html-loader同样式的方式处理url()、<style />
           {
             loader: "url-loader", // 类似于file-loader
             options: {

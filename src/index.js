@@ -1,17 +1,16 @@
 import _ from 'lodash';
-import './style.css';
-import Bg from './bg.jpg';
+import printMe from './print'
 
 function component() {
   let element = document.createElement('div');
+  let btn = document.createElement('button');
 
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
 
-  let myBg = new Image();
-  myBg.src = Bg;
+  btn.innerHTML = 'Click me and check the console!'
+  btn.onclick = printMe;
 
-  element.appendChild(myBg)
+  element.appendChild(btn);
 
   return element;
 }
