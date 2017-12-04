@@ -11,6 +11,12 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: "cheap-source-map", // 追踪错误至源文件
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']), // 每次build前清除dist目录
     new HtmlWebpackPlugin({ // 生成新的index.html
