@@ -1,6 +1,9 @@
 import {cube} from "./match";
-import printMe from './print';
 import './style.css';
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log('development')
+}
 
 function component() {
   let element = document.createElement('pre');
