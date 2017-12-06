@@ -1,4 +1,5 @@
 const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
@@ -24,7 +25,8 @@ module.exports = {
       title: 'Webpack Demo'
     }),
     // new webpack.NamedModulesPlugin(), // 搭配热替换，显示模块的相对路径，路径显示会很长，不好用
-    new webpack.HotModuleReplacementPlugin() // 热替换插件
+    new webpack.HotModuleReplacementPlugin(), // 热替换插件
+    new UglifyJSPlugin() // 压缩工具，可以删除未引用代码
   ],
   module: {
     rules: [

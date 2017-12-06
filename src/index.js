@@ -1,17 +1,12 @@
-import _ from 'lodash';
+import {cube} from "./match";
 import printMe from './print';
 import './style.css';
 
 function component() {
-  let element = document.createElement('div');
+  let element = document.createElement('pre');
   let btn = document.createElement('button');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  btn.innerHTML = 'Click me and check the console!'
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
+  element.innerHTML = ['Hello webpack!', '5 cubed is equal to ' + cube(5)].join('\n\n')
 
   return element;
 }
