@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import printMe from './print'
+import printMe from './print';
+import './style.css';
 
 function component() {
   let element = document.createElement('div');
@@ -15,4 +16,5 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+let element = component();
+document.body.appendChild(element);

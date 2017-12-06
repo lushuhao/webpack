@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   output: {
     filename: "[name].bundle.js",
@@ -14,14 +14,17 @@ module.exports = {
   devtool: "cheap-source-map", // 追踪错误至源文件
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    hot: true,
     compress: true,
-    port: 9000
+    port: 8080,
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // 每次build前清除dist目录
     new HtmlWebpackPlugin({ // 生成新的index.html
       title: 'Webpack Demo'
-    })
+    }),
+    // new webpack.NamedModulesPlugin(), // 搭配热替换，显示模块的相对路径，路径显示会很长，不好用
+    new webpack.HotModuleReplacementPlugin() // 热替换插件
   ],
   module: {
     rules: [
