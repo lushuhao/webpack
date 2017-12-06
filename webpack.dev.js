@@ -4,7 +4,7 @@ const merge = require('webpack-merge'); // 合并配置文件
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
-  //devtool: "cheap-source-map", // 追踪错误至源文件
+  devtool: "cheap-module-eval-source-map", // 追踪错误至源文件，不显示列，显示module源文件，用eval(),加快重新build
   devServer: {
     contentBase: path.join(__dirname, "dist"), // 服务器根目录
     hot: true, // 热替换
