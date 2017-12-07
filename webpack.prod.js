@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   plugins: [
@@ -14,6 +15,7 @@ module.exports = merge(common, {
       'process.env': {
         'NODE_ENV': JSON.stringify('production') // 定义系统环境变量为production
       }
-    })
+    }),
+    new BundleAnalyzerPlugin() // 分析打包后的代码
   ],
 })
