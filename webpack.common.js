@@ -1,23 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-  },
-  output: {
-    filename: "[name].[chunkhash].bundle.js", // 使用chunkhash来优化缓存
-    chunkFilename: "[name].[chunkhash].bundle.js", // 决定非入口chunk的名称
-    path: path.resolve(__dirname, 'dist')
-  },
   plugins: [
     new HtmlWebpackPlugin({ // 生成新的index.html
       title: 'Webpack Demo'
-    }),
-    /*new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // 将公共的依赖模块提取到一个已有或新生成的chunk，指定公共chunk的name
-    })*/
+    })
   ],
   module: {
     rules: [
