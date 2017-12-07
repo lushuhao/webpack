@@ -1,9 +1,13 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ // 生成新的index.html
       title: 'Webpack Demo'
+    }),
+    new webpack.ProvidePlugin({
+      _: 'lodash'  // 将lodash作为全局变量
     })
   ],
   module: {
